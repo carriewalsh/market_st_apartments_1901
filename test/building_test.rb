@@ -20,7 +20,7 @@ class BuildingTest < MiniTest::Test
 
   def test_building_starts_with_no_units_by_default
     building = Building.new
-    assert_nil building.units
+    assert_equal [], building.units
   end
 
   def test_building_can_have_units_added
