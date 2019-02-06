@@ -7,11 +7,15 @@ require "pry"
 
 class BuildingTest < MiniTest::Test
   def setup
+    @building = Building.new
     @a1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms:1})
     @b2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms:2})
-    @building = Building.new
+    @spencer = Renter.new("Spencer")
+    @b2.add_renter(@spencer)
     @building.add_unit(@a1)
     @building.add_unit(@b2)
+    @jessie = Renter.new("Jessie")
+    @a1.add_renter(@jessie)
   end
 
   def test_building_exists
@@ -30,5 +34,10 @@ class BuildingTest < MiniTest::Test
   def test_building_has_average_rent
     assert_equal 1099.5, @building.average_rent
   end
+
+  def test_can_check_renter_with_highest_rent
+    assert_equal @jessie, @building.renter_with_highest_rent
+  end
+
 
 end
