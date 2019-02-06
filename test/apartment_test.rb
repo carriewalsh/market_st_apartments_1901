@@ -42,7 +42,7 @@ class ApartmentTest < MiniTest::Test
   end
 
 
-  def test_apartment_has_renter
+  def test_apartment_can_have_renters_added
     assert_equal @jessie, @a1.renter
   end
 end
