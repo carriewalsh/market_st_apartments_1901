@@ -26,4 +26,15 @@ class Building
     highest_rent.renter
   end
 
+  def annual_breakdown
+    with_renters = @units.reject do |unit|
+      unit.renter == nil
+    end
+    breakdown = {}
+    with_renters.each do |unit|
+      breakdown[unit.renter.name] = unit.monthly_rent * 12
+    end
+    breakdown
+  end
+
 end
