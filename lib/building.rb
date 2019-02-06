@@ -16,4 +16,14 @@ class Building
     (total_rents / @units.count).round(1)
   end
 
+  def renter_with_highest_rent
+    with_renters = @units.reject do |unit|
+      unit.renter == nil
+    end
+    highest_rent = with_renters.max_by do |unit|
+      unit.monthly_rent
+    end
+    highest_rent.renter
+  end
+
 end
