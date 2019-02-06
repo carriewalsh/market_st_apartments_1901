@@ -7,7 +7,7 @@ require "pry"
 class ApartmentTest < MiniTest::Test
   def setup
     @jessie = Renter.new("Jessie")
-    @a1 = Apartment.new({number: "A1",monthly_rent: 1200,bathrooms: 1, bedrooms:1})
+    @a1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms:1})
     @a1.add_renter(@jessie)
   end
 
@@ -20,7 +20,7 @@ class ApartmentTest < MiniTest::Test
   end
 
   def test_apartment_has_monthly_rent
-    assert_equal 1200 @a1.monthly_rent
+    assert_equal 1200, @a1.monthly_rent
   end
 
   def test_apartment_has_how_many_bedrooms
@@ -28,7 +28,7 @@ class ApartmentTest < MiniTest::Test
   end
 
   def test_apartment_has_how_many_bathrooms
-    assert_equal 1 @a1.bathrooms
+    assert_equal 1, @a1.bathrooms
   end
 
   def test_apartment_has_no_renter_by_default
